@@ -82,7 +82,6 @@ local function setup_delve_adapter(dap, config)
   }
 
   dap.adapters.go = function(callback, client_config)
-    print("current client config cwd: " .. client_config.cwd)
     if client_config.program ~= nil then
       local program_absolute = vim.loop.fs_realpath(client_config.program)
 
