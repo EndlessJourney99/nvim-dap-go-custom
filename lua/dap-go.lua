@@ -82,9 +82,11 @@ local function setup_delve_adapter(dap, config)
   }
 
   dap.adapters.go = function(callback, client_config)
+    print("Starting delve adapter...", client_config.program)
     if client_config.program ~= nil then
       local program_absolute = vim.loop.fs_realpath(client_config.program)
 
+      print("Program absolute path: ", program_absolute)
       if program_absolute ~= nil then
         client_config.program = program_absolute
 
